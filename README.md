@@ -1,10 +1,11 @@
-# ML2017S_Hung-yi-Lee_HW
-NTU ML2017 Spring  Homework Hung-yi_Li 李宏毅老师
+# ML2017S+F_Hung-yi-Lee_HW
+NTU ML2017 Spring and Fall Homework Hung-yi_Li 李宏毅老师
 
-[**Course Website**](http://speech.ee.ntu.edu.tw/~tlkagk/courses_ML17.html "NTU ML17S")
+[**2017SCourse Website**](http://speech.ee.ntu.edu.tw/~tlkagk/courses_ML17.html "NTU ML17S")   
+[**2017FCourse Website**](http://speech.ee.ntu.edu.tw/~tlkagk/courses_ML17_2.html "NTU ML17F")   
 
 
-**NTU Mechine Learning 2017Spring total Homework** 
+**NTU Mechine Learning 2017 Spring and Fall total Homework** 
 
 - [HW0 Prerequisite](https://github.com/maplezzz/ML2017S_Hung-yi-Lee_HW/tree/master/HW0)
   - 矩阵乘法  
