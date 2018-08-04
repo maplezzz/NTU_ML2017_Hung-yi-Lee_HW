@@ -15,5 +15,5 @@ NTU ML2017 Spring and Fall Homework Hung-yi_Li 李宏毅老师
 - [HW1 PM2.5 Prediction](https://github.com/maplezzz/ML2017S_Hung-yi-Lee_HW/tree/master/HW1)  
   - linear regression   
 
-- HW2 Income Prediction   
+- [HW2 Income Prediction](https://github.com/maplezzz/ML2017S_Hung-yi-Lee_HW/tree/master/HW2)   
   - logestic regression  
