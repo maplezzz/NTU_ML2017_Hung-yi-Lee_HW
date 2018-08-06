@@ -22,6 +22,7 @@ def ada(X, Y, w, eta, iteration, lambdaL2):
         w = w - eta*grad/ada
     return w, list_cost
 
+
 def SGD(X, Y, w, eta, iteration, lambdaL2):
     list_cost = []
     for i in range(iteration):
