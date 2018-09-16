@@ -61,7 +61,6 @@ n_row = 0
 text = open('data/train.csv', 'r', encoding='big5')
 row = csv.reader(text, delimiter=',')
 for r in row:
-    # 第0行的数据无用 处理后data[0]表示WS_HR
     if n_row != 0:
         for i in range(3,27):
             if r[i] != "NR":
