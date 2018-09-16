@@ -2,6 +2,7 @@ import pandas as pd
 import numpy as np
 from random import shuffle
 from numpy.linalg import inv
+import matplotlib.pyplot as plt
 from math import floor, log
 import os
 
@@ -69,22 +70,24 @@ def valid(X, Y, w):
     y_ = np.around(y)
     result = (np.squeeze(Y) == y_)
     print('Valid acc = %f' % (float(result.sum()) / result.shape[0]))
-    return
+    return y_
 
-def train(X, Y):
-    valid_set_percentage = 0.1
-    X_train, Y_train, X_valid, Y_valid = split_valid_set(X, Y, valid_set_percentage)
+def train(X_train, Y_train):
+    # valid_set_percentage = 0.1
+    # X_train, Y_train, X_valid, Y_valid = split_valid_set(X, Y, valid_set_percentage)
 
     w = np.zeros(len(X_train[0]))
 
-    l_rate = 1
+    l_rate = 0.001
     batch_size = 32
     train_dataz_size = len(X_train)
     step_num = int(floor(train_dataz_size / batch_size))
-    epoch_num = 1000
+    epoch_num = 300
+    list_cost = []
 
     total_loss = 0.0
     for epoch in range(1, epoch_num):
+        total_loss = 0.0
         X_train, Y_train = _shuffle(X_train, Y_train)
 
         for idx in range(1, step_num):
@@ -94,18 +97,30 @@ def train(X, Y):
             s_grad = np.zeros(len(X[0]))
 
 
-            z = np.dot(X, w.T)
+            z = np.dot(X, w)
             y = sigmoid(z)
+            loss = y - np.squeeze(Y)
 
-            cross_entropy = -1 * (np.dot(np.squeeze(Y), np.log(y)) + np.dot((1 - np.squeeze(Y)), np.log(1 - y)))
+            cross_entropy = -1 * (np.dot(np.squeeze(Y.T), np.log(y)) + np.dot((1 - np.squeeze(Y.T)), np.log(1 - y)))/ len(Y)
             total_loss += cross_entropy
 
             grad = np.sum(-1 * X * (np.squeeze(Y) - y).reshape((batch_size, 1)), axis=0)
-            s_grad += grad ** 2
-            ada = np.sqrt(s_grad)
-            w = w - l_rate * grad / ada
+            # grad = np.dot(X.T, loss)
+            w = w - l_rate * grad
 
-    valid(X_valid, Y_valid, w)
+            # s_grad += grad ** 2
+            # ada = np.sqrt(s_grad)
+            # w = w - l_rate * grad / ada
+
+        list_cost.append(total_loss)
+
+    # valid(X_valid, Y_valid, w)
+    plt.plot(np.arange(len(list_cost)), list_cost)
+    plt.title("Train Process")
+    plt.xlabel("epoch_num")
+    plt.ylabel("Cost Function (Cross Entropy)")
+    plt.savefig(os.path.join(os.path.dirname(output_dir), "TrainProcess"))
+    plt.show()
 
     return w
 
@@ -120,16 +135,20 @@ if __name__ == "__main__":
     y_train = dataProcess_Y(trainData).values
     y_ans = ans['label'].values
 
+
     x_test = np.concatenate((np.ones((x_test.shape[0], 1)), x_test), axis=1)
     x_train = np.concatenate((np.ones((x_train.shape[0], 1)),x_train), axis=1)
 
+    valid_set_percentage = 0.1
+    X_train, Y_train, X_valid, Y_valid = split_valid_set(x_train, y_train, valid_set_percentage)
+
+    w_train = train(X_train, Y_train)
+    valid(X_train, Y_train, w_train)
+
     w = train(x_train, y_train)
 
-    a = np.dot(w, x_test.T)
-    y = sigmoid(a)
-    y_ = np.around(y).astype(np.int)
-    result = (np.squeeze(y_ans) == y_)
-    print('Test acc = %f' % (float(result.sum()) / result.shape[0]))
+    y_ = valid(x_test, y_ans, w)
+
     df = pd.DataFrame({"id": np.arange(1, 16282), "label": y_})
     if not os.path.exists(output_dir):
         os.mkdir(output_dir)
