@@ -112,33 +112,17 @@ def train(X_train, Y_train):
 
     return mu1, mu2, shared_sigma, N1, N2
 
-    # print("==========Write output to %s ==============" % save_dir)
-    # if not os.path.exists(save_dir):
-    #     os.mkdir(save_dir)
-    # param_dict = {'mu1': mu1, 'mu2':mu2, 'shared_sigma':shared_sigma,'N1':N1, 'N2':N2}
-    # for key in sorted(param_dict):
-    #     print('Saving %s' % key)
-    #     np.savetxt(os.path.join(save_dir, ('%s' % key)), param_dict[key])
-
-    # print("==========Validating============")
-    # valid(X_valid, Y_valid, mu1, mu2, shared_sigma, N1, N2)
-
-
-
-
-
-
-
-
 
 if __name__ == "__main__":
     trainData = pd.read_csv("data/train.csv")
     testData = pd.read_csv("data/test.csv")
+    ans = pd.read_csv("data/correct_answer.csv")
 
 #here is one more attribute in trainData
     x_train = dataProcess_X(trainData).drop(['native_country_ Holand-Netherlands'], axis=1).values
     x_test = dataProcess_X(testData).values
     y_train = dataProcess_Y(trainData).values
+    y_ans = ans['label'].values
 
     vaild_set_percetange = 0.1
     X_train, Y_train, X_valid, Y_valid = split_valid_set(x_train, y_train, vaild_set_percetange)
@@ -155,6 +139,9 @@ if __name__ == "__main__":
     y = sigmoid(a)
     y_ = np.around(y).astype(np.int)
     df = pd.DataFrame({"id" : np.arange(1,16282), "label": y_})
+    result = (np.squeeze(y_ans) == y_)
+    print('Test acc = %f' % (float(result.sum()) / result.shape[0]))
+    df = pd.DataFrame({"id": np.arange(1, 16282), "label": y_})
     if not os.path.exists(output_dir):
         os.mkdir(output_dir)
     df.to_csv(os.path.join(output_dir+'gd_output.csv'), sep='\t', index=False)
