@@ -3,7 +3,7 @@
 
 由于dataset过大，就不放在github上
 
-##Requirement  
+## Requirement  
  
 - Build Convolution Neural Network  
 
@@ -31,9 +31,9 @@
 
     Use Gradient Ascent method mentioned in class to find the image that activates the selected filter the most and plot them.
     
-**[Visualization Tutorial](https://blog.keras.io/how-convolutional-neural-networks-see-the-world.html)**  
+**[Visualization Tutorial](https://blog.keras.io/how-convolutional-neural-networks-see-the-world.html)**    
 
-##Data description  
+## Data description  
 
 本次作業為Image Sentiment Classification。我們提供給各位的training dataset為兩萬八千張左右48x48 pixel的圖片，以及每一張圖片的表情label（注意：每張圖片都會唯一屬於一種表情）。總共有七種可能的表情（0：生氣, 1：厭惡, 2：恐懼, 3：高興, 4：難過, 5：驚訝, 6：中立(難以區分為前六種的表情))。  
 ![](https://github.com/maplezzz/ML2017S_Hung-yi-Lee_HW/blob/master/HW3/img/data_example.png)
