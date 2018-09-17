@@ -18,5 +18,13 @@ NTU ML2017 Spring and Fall Homework Hung-yi_Li 李宏毅老师
 - [HW2 Income Prediction](https://github.com/maplezzz/ML2017S_Hung-yi-Lee_HW/tree/master/HW2)   
   - logestic regression   
   - probabilistic generative model  
-  - keras  
+  - keras   
+  
+- [HW3 Image Sentiment Classification](https://github.com/maplezzz/ML2017S_Hung-yi-Lee_HW/tree/master/HW3)  
+  - Convolution Neural Network  
+  - Deep Neural Network  
+  - Confusion Matrix  
+  - Saliency Map  
+  - Visualizing Filters 
+  
   
