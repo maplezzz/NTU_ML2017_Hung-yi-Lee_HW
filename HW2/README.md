@@ -35,5 +35,9 @@
 **Logistic Regression**  
 实验过程中采取过Ada但是效果不如sgd，使用mini-batch加快速率，batch-size为32，一共进行300epoch，最终结果  
 ![](https://github.com/maplezzz/ML2017S_Hung-yi-Lee_HW/blob/master/HW2/output/TrainProcess.png)  
-随着epoch-time的增多，loss不断减小，最后valid accuracy为0.852858, test accuracy为0.852343，优于Probability Generative Model这是因为这个模型下不需要假设采样数据的分布
+随着epoch-time的增多，loss不断减小，最后valid accuracy为0.852858, test accuracy为0.852343，优于Probability Generative Model这是因为这个模型下不需要假设采样数据的分布  
+
+**Neural Network** 
+使用keras三层的fully-connected neural network，使用的loss是binary_crossentropy，activation='sigmoid'，optimizer='adam'，前两层都是600个units，batch-size=32， epoch-times=50  
+最后在valid set上的acc=0.9084, test-set上的acc为0.8426
 
