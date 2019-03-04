@@ -1,4 +1,5 @@
-[**HomeWork Description**](https://ntumlta.github.io/2017fall-ml-hw1/)   
+[**HomeWork Description**](https://docs.google.com/presentation/d/1r2u-xVytctdRSbaCAHwWlHIBkmJ50Stnpj1hqi9pFXs/edit?usp=sharing)   
+
 
 ## Predicting PM2.5  
 

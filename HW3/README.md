@@ -1,6 +1,6 @@
 # HW3 Image Sentiment Classification    
 [HomeWork description](https://ntumlta.github.io/ML-Assignment3/index.html)  
-
+[PPT](https://docs.google.com/presentation/d/1txLnBXLYmpJOMsDJItB81lA1gHJ21fgnZTxXWZtgryE/edit?usp=sharing)  
 由于dataset过大，就不放在github上
 
 ## Requirement  

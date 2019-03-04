@@ -1,5 +1,5 @@
 # HW2 Incoming Prediction   
-[HomeWork description](https://ntumlta.github.io/2017fall-ml-hw2/)  
+[HomeWork description](https://docs.google.com/presentation/d/13LSyr3XV4ZrUYimgzzyLn8l50HphTQtvJ5n7XZZCwTw/edit?usp=sharing)  
   
 ## Requirement  
 **Dataset and Task Introduction**  
