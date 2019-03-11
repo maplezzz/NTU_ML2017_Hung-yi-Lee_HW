@@ -38,4 +38,30 @@
 本次作業為Image Sentiment Classification。我們提供給各位的training dataset為兩萬八千張左右48x48 pixel的圖片，以及每一張圖片的表情label（注意：每張圖片都會唯一屬於一種表情）。總共有七種可能的表情（0：生氣, 1：厭惡, 2：恐懼, 3：高興, 4：難過, 5：驚訝, 6：中立(難以區分為前六種的表情))。  
 ![](https://github.com/maplezzz/ML2017S_Hung-yi-Lee_HW/blob/master/HW3/img/data_example.png)
 
-Testing data則是七千張左右48x48的圖片，希望各位同學能利用training dataset訓練一個CNN model，預測出每張圖片的表情label（同樣地，為0~6中的某一個）並存在csv檔中。
+Testing data則是七千張左右48x48的圖片，希望各位同學能利用training dataset訓練一個CNN model，預測出每張圖片的表情label（同樣地，為0~6中的某一個）並存在csv檔中。  
+  
+## Data analysis and clean  
+  
+使用pandas, numpy等工具将原始数据train.csv进行处理分析, 将feature以shape(48,48), 将label以一维np.array的格式输出, 具体方式详见[data_analysis.ipynb](https://github.com/maplezzz/ML2017S_Hung-yi-Lee_HW/blob/master/HW3/data_analysis.ipynb)  
+  
+将7个类别的图片数量统计   
+
+| class       | Num         |  
+| ----------- | ----------- |  
+| angry       | 3995        | 
+| disgust     | 436         | 
+| fear        | 4097        |  
+| happy       | 7215        |  
+| sad         | 4830        | 
+| surprise    | 3171        | 
+| neutral     | 4965        | 
+
+可见分类为厌恶的图片的数量明显偏少, 构建模型需练的时候需要调整weight以达到更好的效果  
+以下是每个表情的实例图片  
+![](https://github.com/maplezzz/ML2017S_Hung-yi-Lee_HW/blob/master/HW3/img/data_analysis/angry.png)  
+![](https://github.com/maplezzz/ML2017S_Hung-yi-Lee_HW/blob/master/HW3/img/data_analysis/disgust.png)  
+![](https://github.com/maplezzz/ML2017S_Hung-yi-Lee_HW/blob/master/HW3/img/data_analysis/fear.png)  
+![](https://github.com/maplezzz/ML2017S_Hung-yi-Lee_HW/blob/master/HW3/img/data_analysis/happy.png)  
+![](https://github.com/maplezzz/ML2017S_Hung-yi-Lee_HW/blob/master/HW3/img/data_analysis/sad.png)  
+![](https://github.com/maplezzz/ML2017S_Hung-yi-Lee_HW/blob/master/HW3/img/data_analysis/surprise.png)  
+![](https://github.com/maplezzz/ML2017S_Hung-yi-Lee_HW/blob/master/HW3/img/data_analysis/neutral.png)  
