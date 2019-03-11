@@ -46,19 +46,19 @@ Testing data則是七千張左右48x48的圖片，希望各位同學能利用tra
   
 将7个类别的图片数量统计   
 
-| class       | Num         |  
-| ----------- | ----------- |  
-| angry       | 3995        | 
-| disgust     | 436         | 
-| fear        | 4097        |  
-| happy       | 7215        |  
-| sad         | 4830        | 
-| surprise    | 3171        | 
-| neutral     | 4965        | 
+| angry       | disgust     | fear       | happy      | sad        | surprise   | neutral    |    
+| ----------- | ----------- |----------- |----------- |----------- |----------- |----------- |  
+| 3995        | 436         |4097        |7215        |4830        |3171        |4965        |
+
 
 可见分类为厌恶的图片的数量明显偏少, 构建模型需练的时候需要调整weight以达到更好的效果  
+  
 以下是每个表情的实例图片  
-![](https://github.com/maplezzz/ML2017S_Hung-yi-Lee_HW/blob/master/HW3/img/data_analysis/angry.png)  ![](https://github.com/maplezzz/ML2017S_Hung-yi-Lee_HW/blob/master/HW3/img/data_analysis/disgust.png)  
-![](https://github.com/maplezzz/ML2017S_Hung-yi-Lee_HW/blob/master/HW3/img/data_analysis/fear.png)  ![](https://github.com/maplezzz/ML2017S_Hung-yi-Lee_HW/blob/master/HW3/img/data_analysis/happy.png)  
-![](https://github.com/maplezzz/ML2017S_Hung-yi-Lee_HW/blob/master/HW3/img/data_analysis/sad.png)  ![](https://github.com/maplezzz/ML2017S_Hung-yi-Lee_HW/blob/master/HW3/img/data_analysis/surprise.png) 
+  
+![](https://github.com/maplezzz/ML2017S_Hung-yi-Lee_HW/blob/master/HW3/img/data_analysis/angry.png)
+![](https://github.com/maplezzz/ML2017S_Hung-yi-Lee_HW/blob/master/HW3/img/data_analysis/disgust.png)  
+![](https://github.com/maplezzz/ML2017S_Hung-yi-Lee_HW/blob/master/HW3/img/data_analysis/fear.png)
+![](https://github.com/maplezzz/ML2017S_Hung-yi-Lee_HW/blob/master/HW3/img/data_analysis/happy.png)  
+![](https://github.com/maplezzz/ML2017S_Hung-yi-Lee_HW/blob/master/HW3/img/data_analysis/sad.png) 
+![](https://github.com/maplezzz/ML2017S_Hung-yi-Lee_HW/blob/master/HW3/img/data_analysis/surprise.png)
 ![](https://github.com/maplezzz/ML2017S_Hung-yi-Lee_HW/blob/master/HW3/img/data_analysis/neutral.png)  
