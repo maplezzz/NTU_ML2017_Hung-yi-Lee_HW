@@ -62,3 +62,31 @@ Testing data則是七千張左右48x48的圖片，希望各位同學能利用tra
 ![](https://github.com/maplezzz/ML2017S_Hung-yi-Lee_HW/blob/master/HW3/img/data_analysis/sad.png) 
 ![](https://github.com/maplezzz/ML2017S_Hung-yi-Lee_HW/blob/master/HW3/img/data_analysis/surprise.png)
 ![](https://github.com/maplezzz/ML2017S_Hung-yi-Lee_HW/blob/master/HW3/img/data_analysis/neutral.png)  
+  
+  
+## Report  
+  
+### Build CNN    
+  
+![](https://github.com/maplezzz/ML2017S_Hung-yi-Lee_HW/blob/master/HW3/img/cnn.png)  
+  
+CNN的结构如图所示, 主要有3个conv box以及在flatten后接一个dense_layer, 每一个conv box里面由convolution_layer, batch_normalization, max_pool, dropout构成, 所有Conv2D中kernel_size=5, strides=1, MaxPooling2D中pool_size=2, strides=1, 除了最后一层为softmax, 其他所有层的activation均为relu, Total params: 2,209,059, Trainable params: 2,207,893, Non-trainable params: 1,166  
+  
+训练过程中accuracy与loss变化如下图所示  
+  
+![](https://github.com/maplezzz/ML2017S_Hung-yi-Lee_HW/blob/master/HW3/img/report/cnn_acc.png)
+![](https://github.com/maplezzz/ML2017S_Hung-yi-Lee_HW/blob/master/HW3/img/report/cnn_loss.png)   
+    
+### Build DNN  
+  
+![](https://github.com/maplezzz/ML2017S_Hung-yi-Lee_HW/blob/master/HW3/img/dnn.png) 
+  
+DNN有三层Dense_layer构成, 每层的数目分别为512, 1024, 512, 每层后面均有batch_normalization和dropout, activation同样为relu,Total params: 2,242,083, Trainable params: 2,237,973, Non-trainable params: 4,110 训练过程中accuracy与loss变化如下  
+  
+![](https://github.com/maplezzz/ML2017S_Hung-yi-Lee_HW/blob/master/HW3/img/report/dnn_acc.png)
+![](https://github.com/maplezzz/ML2017S_Hung-yi-Lee_HW/blob/master/HW3/img/report/dnn_loss.png)  
+
+#### 比较  
+在可训练参数数目相差不多的情况下, dnn每一个epoch的训练时间约为4s, 远快于cnn的19s, 但是在同样做了BN以及droupout的情况下, cnn的训练效果远好于dnn.  
+
+在验证集为数据集最后20,000笔的情况下, cnn在验证集的正确率达到了60%, 而dnn只有40%, 证明了课上的理论, cnn能够更高效的利用每一个参数
