@@ -104,3 +104,13 @@ DNN有三层Dense_layer构成, 每层的数目分别为512, 1024, 512, 每层后
 
 可见确实有几张即便通过人类也很难正确做出和训练集一样的分类答案, 具体操作方式见[report.ipynb](https://github.com/maplezzz/ML2017S_Hung-yi-Lee_HW/blob/master/HW3/report.ipynb)  
 
+### Analyze the Model by Plotting the Saliency Map  
+
+从[keras](https://raghakot.github.io/keras-vis/visualizations/saliency/)关于Saliency Map的教程可以知道, Saliency Map其实就是最后的结果对输入的求导,从而判断原图中每个像素对最后结果的影响.  
+
+下图为CNN模型对测试集前6张图片的Saliency Map, 具体操作方式见[report.ipynb](https://github.com/maplezzz/ML2017S_Hung-yi-Lee_HW/blob/master/HW3/report.ipynb), 需要注意的是由于keras的vis api与tensorflow的keras api有版本冲突, 所以如果之前训练的模型是用tf.python.keras训练并保存的话, 需要用keras重新训练保存, 并且用keras.models.load_model 读取储存的模型  
+
+![](https://github.com/maplezzz/ML2017S_Hung-yi-Lee_HW/blob/master/HW3/img/report/sm.png)  
+
+从Saliency Map可以看出CNN 模型对结果影响较大的像素点主要集中在原图的五官以及面部轮廓附近, 这样的结果是显而易见的
+
