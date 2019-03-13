@@ -89,4 +89,18 @@ DNN有三层Dense_layer构成, 每层的数目分别为512, 1024, 512, 每层后
 #### 比较  
 在可训练参数数目相差不多的情况下, dnn每一个epoch的训练时间约为4s, 远快于cnn的19s, 但是在同样做了BN以及droupout的情况下, cnn的训练效果远好于dnn.  
 
-在验证集为数据集最后20,000笔的情况下, cnn在验证集的正确率达到了60%, 而dnn只有40%, 证明了课上的理论, cnn能够更高效的利用每一个参数
+在验证集为数据集最后2000笔的情况下, cnn在验证集的正确率达到了60%, 而dnn只有40%, 证明了课上的理论, cnn能够更高效的利用每一个参数  
+
+### Analyze the Model by Confusion Matrix  
+
+测试资料来源于训练资料的最后2000笔, 大约10%的训练资料, 下图左边为CNN的Confusion Matrix, 右边为DNN的, 可见CNN的训练效果远好于DNN  
+
+![](https://github.com/maplezzz/ML2017S_Hung-yi-Lee_HW/blob/master/HW3/img/report/cnn_cm.png)
+![](https://github.com/maplezzz/ML2017S_Hung-yi-Lee_HW/blob/master/HW3/img/report/dnn_cm.png)  
+
+这里主要拿CNN的Confusion Matrix做主要分析, 除去过少的分类为厌恶的图片, 分类为开心的图片训练效果最好, 分类为伤心的图片训练效果最差, 其中很大一部分被错分为中立, 下图为9张被错分的图片  
+
+![](https://github.com/maplezzz/ML2017S_Hung-yi-Lee_HW/blob/master/HW3/img/report/sad_n.png)  
+
+可见确实有几张即便通过人类也很难正确做出和训练集一样的分类答案, 具体操作方式见[report.ipynb](https://github.com/maplezzz/ML2017S_Hung-yi-Lee_HW/blob/master/HW3/report.ipynb)  
+

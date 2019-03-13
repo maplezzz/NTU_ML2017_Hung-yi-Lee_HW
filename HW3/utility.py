@@ -18,6 +18,7 @@ def plot_training_history(r):
 
 
 def plot_images(images, cls_true, cls_pred=None):
+    name = ['angry','disgust', 'fear', 'happy', 'sad', 'surprise', 'neutral']
     assert len(images) == len(cls_true) == 9
 
     # Create figure with 3x3 sub-plots.
