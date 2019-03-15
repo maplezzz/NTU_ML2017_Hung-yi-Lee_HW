@@ -26,5 +26,12 @@ NTU ML2017 Spring and Fall Homework Hung-yi_Li 李宏毅老师
   - Confusion Matrix  
   - Saliency Map  
   - Visualizing Filters 
+
+- [HW4 Text Sentiment Classification](https://github.com/maplezzz/ML2017S_Hung-yi-Lee_HW/tree/master/HW4)   
+  - Processing the Sentence   
+  - Word Embedding  
+  - Semi-Supervised learning  
+  - RNN  
+  
   
   
