@@ -117,5 +117,46 @@ DNN有三层Dense_layer构成, 每层的数目分别为512, 1024, 512, 每层后
 ![](https://github.com/maplezzz/ML2017S_Hung-yi-Lee_HW/blob/master/HW3/img/report/sm4.png)
 ![](https://github.com/maplezzz/ML2017S_Hung-yi-Lee_HW/blob/master/HW3/img/report/sm5.png)  
 
-从Saliency Map可以看出CNN 模型对结果影响较大的像素点主要集中在原图的五官以及面部轮廓附近, 这样的结果是显而易见的
+从Saliency Map可以看出CNN 模型对结果影响较大的像素点主要集中在原图的五官以及面部轮廓附近, 这样的结果是显而易见的  
+
+### Analyze the Model by Visualizing Filters  
+
+具体操作方式见[report.ipynb](https://github.com/maplezzz/ML2017S_Hung-yi-Lee_HW/blob/master/HW3/report.ipynb)  
+
+第一部分将要视觉化每一个卷积层的weight以及图片在输入每一个卷积层后的输出,即经过filter后的值. 由于filter的数目过多, 每一个卷积层均取前64个filter, 每个filter都只取第一个channel  
+
+原始图片![](https://github.com/maplezzz/ML2017S_Hung-yi-Lee_HW/blob/master/HW3/img/report/img.png)  
+
+第一个卷积层的weights和输出  
+
+![](https://github.com/maplezzz/ML2017S_Hung-yi-Lee_HW/blob/master/HW3/img/report/w1.png)
+![](https://github.com/maplezzz/ML2017S_Hung-yi-Lee_HW/blob/master/HW3/img/report/l1.png)  
+
+第二个卷积层的weights和输出  
+
+![](https://github.com/maplezzz/ML2017S_Hung-yi-Lee_HW/blob/master/HW3/img/report/w2.png)
+![](https://github.com/maplezzz/ML2017S_Hung-yi-Lee_HW/blob/master/HW3/img/report/l2.png)  
+
+第三个卷积层的weights和输出  
+
+![](https://github.com/maplezzz/ML2017S_Hung-yi-Lee_HW/blob/master/HW3/img/report/w3.png)
+![](https://github.com/maplezzz/ML2017S_Hung-yi-Lee_HW/blob/master/HW3/img/report/l3.png)  
+
+有上面可见随着经过更多的卷积层, 原始图片被拆分成的特征越来越不能被人类所识别, 但是简单从每一个filter的weight来分析并不能直观确定每一个filter具体做了什么  
+
+第二部分使用gradient ascend来分析filter  
+
+其原理就是降输入的图片当作48*48维的变量, 通过梯度上升的方法, 在一定的循环次数后, 将某一卷积层中的经过某一filter之后reduce_mean的值不断增加, 从而通过输入的图片来了解这个filter关注与什么样的纹理构造, 这种分析方式也称做feature maximization or activation maximization[参考资料](https://raghakot.github.io/keras-vis/visualizations/activation_maximization/)  
+
+以下为每一卷积层前64个filter在做graident ascend的结果, step为0.1, 个做了500次,具体操作方式见[report.ipynb](https://github.com/maplezzz/ML2017S_Hung-yi-Lee_HW/blob/master/HW3/report.ipynb)  
+
+![](https://github.com/maplezzz/ML2017S_Hung-yi-Lee_HW/blob/master/HW3/img/report/f1.png)  
+![](https://github.com/maplezzz/ML2017S_Hung-yi-Lee_HW/blob/master/HW3/img/report/f2.png)  
+![](https://github.com/maplezzz/ML2017S_Hung-yi-Lee_HW/blob/master/HW3/img/report/f3.png)  
+
+由此可见, 在开始的卷次层中每个filter的专注的目的比较明显, 可以看出明显的线条, 越往后filter提取的特征越为抽象
+
+
+
+
 
